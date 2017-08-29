@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   computor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/21 19:10:28 by esterna           #+#    #+#             */
-/*   Updated: 2017/03/21 19:13:36 by esterna          ###   ########.fr       */
+/*   Created: 2017/08/29 15:44:07 by esterna           #+#    #+#             */
+/*   Updated: 2017/08/29 15:56:10 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef COMPUTOR_H
+# define COMPUTOR_H
 
-int		ft_isspace(int ch)
-{
-	unsigned char test;
+# include "libft.h"
+# include "libftprintf.h"
 
-	test = (unsigned char)ch;
-	if (test == '\t' || test == '\n' || test == '\v' || test == '\f' || test == '\r'
-			|| test == ' ')
-		return (1);
-	return (0);
-}
+int			check_form(char *str);
+
+double		**find_coeff(char *str);
+
+int			find_power(char *str);
+
+int			check_coeff(double **coeff, int power);
+
+double		**print_reduced(double **ptr, int *power);
+
+#endif
