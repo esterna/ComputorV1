@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:43:04 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 15:45:53 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/29 17:30:37 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int			check_form(char *str)
 			return (0);
 		if (ft_isdigit(*str))
 		{
-			while (ft_isdigit(*str) || *str == '.' || ft_isspace(*str))
-				str++;
+			str = fast_forward(str, '1');
 			if (*str == '\0')
 				return (1);
 			if (*str != '+' && *str != '-' && *str != '=' && *str != '*')
@@ -34,9 +33,7 @@ int			check_form(char *str)
 			str++;
 			if (*str == '+' || *str == '-' || *str == '=' || *str == '*')
 				return (0);
-			while (ft_isspace(*str) || *str == '+' ||
-					*str == '-' || *str == '=' || *str == '*')
-				str++;
+			str = fast_forward(str, '2');
 		}
 		if (*str == 'X' || *str == 'x')
 		{
@@ -44,8 +41,7 @@ int			check_form(char *str)
 				return (0);
 			str = str + (*(str + 1) == '^' ? 3 : 1);
 		}
-		while (ft_isspace(*str) || *str == '+' || *str == '-' || *str == '=')
-			str++;
+		str = fast_forward(str, '3');
 	}
 	return (1);
 }

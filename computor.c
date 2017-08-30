@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:50:02 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 16:06:12 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/29 18:00:14 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void		solve_complex(double *coeff, double discrim)
 	double i2;
 
 	x = (-coeff[1]) / (2 * coeff[2]);
-	i1 = ft_sqrt(-discrim) / (2 * coeff[2]);
-	i2 = -(ft_sqrt(-discrim) / (2 * coeff[2]));
+	i1 = (ft_sqrt(-discrim)) / (2 * coeff[2]);
+	i2 = -i1;
 	ft_printf("%g", x);
 	if (i1 >= 0)
 		ft_putstr(" + ");
@@ -95,7 +95,7 @@ void		solve_quadequ(double *coeff, double discrim)
 	{
 		x1 = (-b + ft_sqrt(discrim)) / (2 * a);
 		x2 = (-b - ft_sqrt(discrim)) / (2 * a);
-		ft_printf("%.6f\n%.6f\n", x1, x2);
+		ft_printf("%g\n%g\n", x1, x2);
 	}
 	else if (discrim == 0)
 		ft_printf("%g\n", (-b) / (2 * a));
