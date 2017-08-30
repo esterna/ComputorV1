@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:50:02 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 18:00:14 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/29 21:08:38 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,15 @@ void		print_power(int power, double **coeff)
 		ft_putstr("The polynomial degree is ");
 		ft_putstr("strictly greater than 2, I can't solve.\n");
 	}
-	else if (power == 0 || check_coeff(coeff, power) == 0)
-		ft_putstr("The solution is:\nAll Real numbers.\n");
+	else if (power == 0 || check_coeff(coeff, power) == 0 ||
+			check_power(coeff, power) == 0)
+	{
+		if (check_coeff(coeff, power) == 0 ||
+				check_power(coeff, power) == 0)
+			ft_putstr("The solution is:\nAll Real numbers\n");
+		else
+			ft_putstr("No Real Solution\n");
+	}
 	else if (power == 1)
 	{
 		ft_putstr("The solution is:\n");
@@ -148,6 +155,7 @@ int			main(int argc, char **argv)
 		coeff = find_coeff(*argv);
 		power = (check_coeff(coeff, find_power(*argv)) == 0)
 					? 0 : find_power(*argv);
+		ft_printf("Reduced Form: ");
 		coeff = print_reduced(coeff, &power);
 		ft_printf("Polynomial degree: %d\n", power);
 		print_power(power, coeff);

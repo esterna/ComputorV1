@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:43:04 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 17:30:37 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/29 21:12:15 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int			check_form(char *str)
 {
 	while (*str != '\0')
 	{
-		if (ft_isdigit(*str) == 0 && *str != 'x' && *str != 'X')
-			return (0);
 		if (ft_isdigit(*str))
 		{
 			str = fast_forward(str, '1');

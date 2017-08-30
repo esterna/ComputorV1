@@ -6,11 +6,34 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:47:00 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 18:05:23 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/29 21:31:58 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "computor.h"
+
+/*
+** Checks whether it is the case that only one of the powers has a 
+** coefficient, meaning that the solution is All Real Numbers.
+*/
+
+int			check_power(double **coeff, int power)
+{
+	int		i;
+	int		zeroes;
+
+	i = 0;
+	zeroes = 0;
+	while (i < power)
+	{
+		if (coeff[0][i] == 0)
+			zeroes++;
+		i++;
+	}
+	if (zeroes == power && power != 0)
+		return (0);
+	return (1);
+}
 
 /*
 ** Used to find the polynomial equation's power.
@@ -60,7 +83,7 @@ char		*fast_forward(char *str, int x)
 					ft_isspace(*str) == 1 || *str == '*') && *str != '\0')
 			str++;
 	else if (x == '1')
-		while (ft_isdigit(*str) || *str == '.' || ft_isspace(*str))
+		while (ft_isdigit(*str) || *str == '.' || ft_isspace(*str) || *str == '/')
 			str++;
 	else if (x == '2')
 		while (ft_isspace(*str) || *str == '+' ||
@@ -70,6 +93,23 @@ char		*fast_forward(char *str, int x)
 		while (ft_isspace(*str) || *str == '+' || *str == '-' || *str == '=')
 			str++;
 	return (str);
+}
+
+double		ft_frtod(char **str)
+{
+	double		num;
+	double		denom;
+	char		*tmp;
+
+	tmp = *str;
+	num = ft_atod(tmp);
+	while (ft_isdigit(*tmp) == 1 || *tmp == '.')
+		tmp++;
+	if (*tmp != '/')
+		return (num);
+	tmp++;
+	denom = ft_atod(tmp);
+	return (num / denom);
 }
 
 /*
@@ -91,7 +131,7 @@ double		**find_coeff(char *str)
 		side += (*str == '=' && str++) ? 1 : 0;
 		neg = (*str == '-') ? -1 : 1;
 		str = fast_forward(str, 'x');
-		tmp = neg * ((*str == 'x' || *str == 'X') ? 1 : ft_atod(str));
+		tmp = neg * ((*str == 'x' || *str == 'X') ? 1 : ft_frtod(&str));
 		str = fast_forward(str, '.');
 		if (*str == '+' || *str == '-' || *str == '=' || *str == '\0')
 			coeff[side][0] += tmp;

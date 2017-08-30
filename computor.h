@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:44:07 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 17:28:50 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/29 21:04:22 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int			check_coeff(double **coeff, int power);
 double		**print_reduced(double **ptr, int *power);
 
 char		*fast_forward(char *str, int x);
+
+int			check_power(double **coeff, int power);
 
 #endif

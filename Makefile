@@ -6,7 +6,7 @@
 #    By: esterna <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/26 17:01:46 by esterna           #+#    #+#              #
-#    Updated: 2017/08/29 18:43:27 by esterna          ###   ########.fr        #
+#    Updated: 2017/08/29 20:16:05 by esterna          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FUNCTIONS =	check_form.c\
 all: $(NAME)
 
 $(NAME):
-	@gcc $(CFLAGS) -o computor $(FUNCTIONS) $(DEPS)
+	@gcc $(CFLAGS) -g -o computor $(FUNCTIONS) $(DEPS)
 
 clean:
 	@/bin/rm -f $(OBJ)
