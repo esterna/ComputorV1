@@ -1,0 +1,88 @@
+ections
+Preliminaries
+Preliminary Instructions
+
+Check the following elements first:
+
+- That something has been turned in (in the git repo).
+
+- No cheating; the student must be able to explain their code.
+
+- If the program is written in a compilable language, there's a Makefile at least the rules all, re, and clean. If an element of this list is not respected, the grader stops there. Use the appropriate flag. You are encouraged to continue to debate the project, but the rating scale is not applicable.
+ Yes
+ No
+First section
+Mandatory Part
+
+Existence of reduced equation
+
+Does the program takes an equation as a parameter on standard
+input and show the results in reduced form? Is it correct?
+ Yes
+ No
+Reduced-form equation
+
+In the reduced equation, are the powers are shown until the last non-zero
+power, one time, and is one of the two sides of the equation zero?
+ Yes
+ No
+Input handling
+
+Try multiple properly-formatted inputs with potential complexities (coefficient of zero, negative numbers, fractions ...). Does the program handle them? (No crash or calculation errors, no infinite loops...).
+IMPORTANT: If you have responded 'no' to one of these three questions, the defense ends here. 
+ Yes
+ No
+Degree 0 (special case 0) Equations
+
+Enter a possible equation (for example, "5 * X^0 = 5 * X^0"). Does the program tell you that all real numbers are the solution? Enter an impossible equation (for example, "4 * X^0 = 8 * X^0"). Does the program tell you that there are no solutions?
+ Yes
+ No
+Degree 1 (Linear) Equations
+
+Enter a linear equation (for example: "5 * X^0 = 4 * X^0 + 7 * X^1"). Does the program show you the solution to the equation? Try a couple different equations.
+ Yes
+ No
+Degree 2 (quadratic) Equations - positive discriminant
+
+Try a quadratic equation with a positive discriminant (for example: "5 * X^0 + 13 * X^1 + 3 * X^2 = 1 * X^0 + 1 * X^1"). Does the program show you that it is has a positive discriminant? Does the program show you two solutions? Are they right? Try a couple of different equations.
+ Yes
+ No
+Degree 2 (quadratic) Equations - discriminant of zero
+
+Enter a Degree 2 (quadratic) equation with a negative discriminant (for example: "5 * X^0 + 3 * X^1 + 3 * X^2 = 1 * X^0 + 0 * X^1"). Does the program show you that the equation has a negative discriminant? Does it show you two complex solutions? Are they right? Try a couple of equations.
+ Yes
+ No
+Equations de degré 2 - Discriminant strictement négatif
+
+Entrez une équation de degré deux avec un discriminant strictement négatif (par exemple: "5 * X^0 + 3 * X^1 + 3 * X^2 = 1 * X^0 + 0 * X^1"). 
+Le programme vous affiche bien qu'elle a un discriminant strictement négatif ? 
+Le programme vous affiche bien deux solutions complexes? Ce sont les bonnes ? Faites plusieurs essais. 
+ Yes
+ No
+Degree 3+ Equations
+
+Enter an equation of Degree 3 or more. The program should refuse to solve the equation. If the program solves it, award points even so, and make a small gasp of admiration, but in either case, the program can't crash.
+ Yes
+ No
+Bonus
+Bonus Part
+
+Handling of naturally formated input
+
+Is the program capable of handling naturally formatted input?
+* A coefficient alone ("4") is treated as a factor of X^0.
+* An X alone is considered to have a coefficient of 1 and an exponent of 1.
+* A missing exponent ("4 * X") is considered to be 1.
+* A missing coefficient ("X^6") is considered to be 1.
+* Operands can be input in arbitrary order regardless of exponential power; multiple operands of the same power may also appear in arbitrary order.
+ Yes
+ No
+Second bonus
+
+Appropriate handling of input errors (lexical and syntactical).
+Displays results as irreducible fractions, when applicable.
+Displays intermediate steps.
+Etc...
+Rate it from 0 (failed) through 5 (excellent)
+
+
