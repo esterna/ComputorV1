@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:47:00 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 21:31:58 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/31 17:25:05 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,13 @@ char		*fast_forward(char *str, int x)
 				*str != 'X' && *str != '\0')
 			str++;
 	else if (x == '.')
-		while ((ft_isdigit(*str) == 1 || *str == '.' ||
-					ft_isspace(*str) == 1 || *str == '*') && *str != '\0')
+		while ((ft_isdigit(*str) == 1 || *str == '.' || *str == '/' ||
+					ft_isspace(*str) == 1 || *str == '*' || *str == 'e'
+					|| *str == 'E') && *str != '\0')
 			str++;
 	else if (x == '1')
-		while (ft_isdigit(*str) || *str == '.' || ft_isspace(*str) || *str == '/')
+		while (ft_isdigit(*str) || *str == '.' || ft_isspace(*str) || *str == '/'
+				|| *str == 'e' || *str == 'E')
 			str++;
 	else if (x == '2')
 		while (ft_isspace(*str) || *str == '+' ||
@@ -103,7 +105,8 @@ double		ft_frtod(char **str)
 
 	tmp = *str;
 	num = ft_atod(tmp);
-	while (ft_isdigit(*tmp) == 1 || *tmp == '.')
+	while (ft_isdigit(*tmp) == 1 || *tmp == '.' || *tmp == 'E'
+			|| *tmp == 'e')
 		tmp++;
 	if (*tmp != '/')
 		return (num);

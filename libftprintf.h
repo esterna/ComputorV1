@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 11:54:30 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 18:28:05 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/31 19:20:32 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ int				ft_toupper(int c);
 char			*find_color(char *color);
 
 int				find_exponent(double dbl, int base);
+
+int				ft_abs(int n);
 
 int				dbl_front_size(double dbl, int base);
 

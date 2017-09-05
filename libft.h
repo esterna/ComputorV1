@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 17:04:48 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/28 19:21:45 by esterna          ###   ########.fr       */
+/*   Updated: 2017/08/31 17:09:12 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 */
 double				ft_atod(char *nbr);
 
-int					ft_atoi(const char *str);
+size_t				ft_atoi(const char *str);
 
-int					ft_atoi_base(const char *n, int b);
+size_t				ft_atoi_base(const char *n, int b);
 
 int					ft_nbrsize_base(int n, int base);
 
