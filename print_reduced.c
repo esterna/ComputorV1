@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 17:19:51 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/29 21:22:30 by esterna          ###   ########.fr       */
+/*   Updated: 2017/09/05 15:53:44 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ int			check_coeff(double **coeff, int power)
 double		**reduce_coeff(double **ptr, int *power)
 {
 	int i;
+	double tmp;
 
 	i = 0;
 	while (i <= *power)
 	{
-		ptr[0][i] = ptr[0][i] - ptr[1][i];
+		tmp =ptr[0][i] - ptr[1][i];
+		ptr[0][i] = tmp; 
 		i++;
 	}
 	i = *power;

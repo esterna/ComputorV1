@@ -6,7 +6,7 @@
 /*   By: esterna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 15:47:00 by esterna           #+#    #+#             */
-/*   Updated: 2017/08/31 17:25:05 by esterna          ###   ########.fr       */
+/*   Updated: 2017/09/05 19:18:56 by esterna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ char		*fast_forward(char *str, int x)
 	else if (x == '.')
 		while ((ft_isdigit(*str) == 1 || *str == '.' || *str == '/' ||
 					ft_isspace(*str) == 1 || *str == '*' || *str == 'e'
-					|| *str == 'E') && *str != '\0')
+					|| *str == 'E'
+					|| ((*(str - 1) == 'e' || *(str - 1) == 'E') &&
+						(*str == '+' || *str == '-'))) && *str != '\0')
 			str++;
 	else if (x == '1')
 		while (ft_isdigit(*str) || *str == '.' || ft_isspace(*str) || *str == '/'
@@ -131,7 +133,7 @@ double		**find_coeff(char *str)
 	coeff = init_2d_dbl(str);
 	while (*(str = fast_forward(str, ' ')) != '\0')
 	{
-		side += (*str == '=' && str++) ? 1 : 0;
+		side += (*str == '=' && (str = fast_forward(++str, ' '))) ? 1 : 0;
 		neg = (*str == '-') ? -1 : 1;
 		str = fast_forward(str, 'x');
 		tmp = neg * ((*str == 'x' || *str == 'X') ? 1 : ft_frtod(&str));
